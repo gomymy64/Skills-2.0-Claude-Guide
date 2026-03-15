@@ -690,6 +690,67 @@ body::before {
 }
 .footer-links a:hover { color: var(--accent-2); }
 
+/* CTA BLOCK */
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 0 20px #8b5cf615, 0 0 60px #8b5cf608; border-color: var(--border); }
+  50% { box-shadow: 0 0 30px #8b5cf625, 0 0 80px #8b5cf612; border-color: #8b5cf640; }
+}
+.cta-block {
+  position: relative;
+  max-width: 800px;
+  margin: 60px auto 40px;
+  padding: 40px 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  overflow: hidden;
+  animation: ctaGlow 3s ease-in-out infinite;
+}
+.cta-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  flex: 1;
+}
+.cta-text span {
+  background: linear-gradient(135deg, var(--accent-2), var(--fire));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cta-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, var(--accent-1), var(--fire));
+  color: #fff;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px #8b5cf650;
+}
+.cta-btn svg { width: 16px; height: 16px; fill: #fff; }
+@media (max-width: 600px) {
+  .cta-block { flex-direction: column; text-align: center; padding: 32px 24px; }
+  .cta-btn { width: 100%; justify-content: center; }
+}
+
 /* ═══ SEPARATOR ═══ */
 .sep {
   height: 1px;
@@ -1213,13 +1274,18 @@ body::before {
     </a>
   </section>
 
+  <!-- CTA -->
+  <div class="cta-block fade-in">
+    <div class="cta-text">Пошаговый план по выходу на первые <span>100к в ИИ</span> в 2026</div>
+    <a href="https://t.me/mastodont_aibot?start=agency" target="_blank" class="cta-btn"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> ЗАБРАТЬ</a>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer fade-in">
     <div class="footer-brand">МАСТОДОНТ</div>
-    <p style="color:var(--text-muted);font-size:0.82rem;">AI и нейросети — просто, по делу, на русском</p>
+    <p style="color:var(--text-muted);font-size:0.82rem;">AI и нейросети - просто, по делу</p>
     <div class="footer-links">
       <a href="#" onclick="event.preventDefault();copyVideoTitle(this);">📹 Claude Code СТАЛ НЕУДЕРЖИМ (Skills 2.0)</a>
-      <a href="https://t.me/mastodon_ai" target="_blank">📱 Telegram</a>
     </div>
   </footer>
 
